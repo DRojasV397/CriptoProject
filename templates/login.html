@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
     <script>
         function validateForm() {
             var email = document.forms["loginForm"]["email"].value;
@@ -18,23 +18,58 @@
     </script>
 </head>
 <body>
-    <h2>Login</h2>
-    <form name="loginForm" action="{{ url_for('login') }}" method="POST" onsubmit="return validateForm()">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Login">
-    </form>
-    <p>¿No tienes una cuenta? <a href="{{ url_for('register') }}">Regístrate aquí</a>.</p>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+<div class="container">
+    <div class="form-container">
+        <div>
+            <h2 class="title">
+                Sign in to your account
+            </h2>
+            <p class="subtitle">
+                Or 
+                <a href="{{ url_for('register') }}" class="register-link">
+                    register for a new account
+                </a>
+            </p>
+        </div>
+        <form name="loginForm" class="form" action="{{ url_for('login') }}" method="POST" onsubmit="return validateForm()">
+            <input type="hidden" value="true" name="remember" />
+            <div class="input-group">
+                <div>
+                    <label class="sr-only" for="email">Email address</label>
+                    <input class="input" id="email" autocomplete="off" required type="email" name="email" placeholder="Email address" />
+                </div>
+                <div>
+                    <label class="sr-only" for="password">Password</label>
+                    <input class="input" id="password" autocomplete="current-password" required type="password" name="password" placeholder="Password" />
+                </div>
+            </div>
+            <div class="options">
+                <div class="remember-me">
+                    <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" class="checkbox" id="remember-me"></button>
+                    <input aria-hidden="true" tabindex="-1" type="checkbox" value="on" name="remember-me" class="hidden-checkbox" />
+                    <label class="checkbox-label" for="remember-me">Remember me</label>
+                </div>
+                <div class="forgot-password">
+                    <a href="#" class="forgot-password-link">Forgot your password?</a>
+                </div>
+            </div>
+            <div>
+                <button class="submit-button" type="submit">
+                    Sign in
+                </button>
+            </div>
+        </form>
+        <p>¿No tienes una cuenta? <a href="{{ url_for('register') }}">Regístrate aquí</a>.</p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</div>
 </body>
 </html>

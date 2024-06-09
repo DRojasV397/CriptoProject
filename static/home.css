@@ -1,0 +1,117 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos generales */
+  body, html {
+    height: 100%;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .min-h-[100dvh] {
+    min-height: 100vh;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    padding: 2rem;
+  }
+  
+  h2 {
+    margin-bottom: 1rem;
+  }
+  
+  form div {
+    margin-bottom: 1rem;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  footer p {
+    margin-bottom: 0.5rem;
+  }
+  
+  footer nav a {
+    margin: 0 0.5rem;
+  }
+  
+  /* Estilos específicos */
+  header a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  header a svg {
+    margin-right: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    header nav {
+      display: none;
+    }
+  
+    header button {
+      display: block;
+    }
+  
+    main {
+      padding: 1rem;
+    }
+  }
+  
+  

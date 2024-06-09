@@ -6,7 +6,7 @@ app = create_app()
 migrate = Migrate(app, db)
 
 @app.route('/')
-def home():
+def home(): 
     if 'user' in session:
         return render_template('home.html', user=session['user'])
     return redirect(url_for('login'))
